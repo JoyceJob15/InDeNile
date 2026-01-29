@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1408848958
+  GlobalObjectIdHash: 3612578122
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -69,9 +69,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3027a4e8189dace458fe280ada33ec5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  head: {fileID: 0}
-  leftHand: {fileID: 0}
-  rightHand: {fileID: 0}
+  head: {fileID: 1950400712277525916}
+  leftHand: {fileID: 2690558603805851579}
+  rightHand: {fileID: 8140498858875359908}
 --- !u!1 &1171422223679075368
 GameObject:
   m_ObjectHideFlags: 0
