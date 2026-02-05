@@ -898,7 +898,7 @@ MonoBehaviour:
   headTracker: {fileID: 1971946896}
   leftHandTracker: {fileID: 1971946895}
   rightHandTracker: {fileID: 1971946894}
-  xrOrigin: {fileID: 0}
+  xrOrigin: {fileID: 1859393114}
 --- !u!4 &1714719712
 Transform:
   m_ObjectHideFlags: 0
@@ -941,6 +941,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -3910990755373119420, guid: a545a5dbb65873348ab5d52eec2d5c12,
     type: 3}
   m_PrefabInstance: {fileID: 265874284}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1859393114 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7696548424635294051, guid: 895f6f3c2d334633b5800312285058d2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1971946893}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1929929477
 GameObject:

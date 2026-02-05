@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1856593924034026132}
   - component: {fileID: 2440348524015434648}
   - component: {fileID: -6647743577618824884}
-  - component: {fileID: 3088189398385684279}
+  - component: {fileID: 4490802299705879176}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1408848958
+  GlobalObjectIdHash: 3612578122
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -74,7 +74,7 @@ MonoBehaviour:
   head: {fileID: 1950400712277525916}
   leftHand: {fileID: 2690558603805851579}
   rightHand: {fileID: 8140498858875359908}
---- !u!114 &3088189398385684279
+--- !u!114 &4490802299705879176
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -86,7 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d7d0c42a794bf64b8eea416bade8586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameTagText: {fileID: 0}
+  nameTagText: {fileID: 1959541807127644832}
 --- !u!1 &1171422223679075368
 GameObject:
   m_ObjectHideFlags: 0
