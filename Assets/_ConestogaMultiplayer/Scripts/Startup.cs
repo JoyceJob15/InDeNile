@@ -35,7 +35,6 @@ namespace ConestogaMultiplayer
                     case "host": mode = Mode.HOST; break;
                 }
             }
-
             // Start in the appropriate mode
             switch (mode)
             {
@@ -68,6 +67,7 @@ namespace ConestogaMultiplayer
 
         private void FoundServer(NetworkDiscovery.DiscoveryInfo info)
         {
+            print("FOUND SERVER");
             gotServer = true;  // we marry the first person who proposes to us
             UnityTransport transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
             transport.SetConnectionData(info.EndPoint.Address.ToString(), info.GetGameServerPort());

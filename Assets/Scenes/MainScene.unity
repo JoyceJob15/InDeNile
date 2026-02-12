@@ -668,7 +668,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_serverPort: 18418
-  gameServerPortNumber: 7777
+  gameServerPortNumber: 7000
 --- !u!4 &1574572021
 Transform:
   m_ObjectHideFlags: 0
