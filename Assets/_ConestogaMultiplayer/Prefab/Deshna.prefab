@@ -841,6 +841,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 5597268495332370574}
+    - targetCorrespondingSourceObject: {fileID: 8771091787928289351, guid: 339477d90f964cd4b901f6a4ac447b10,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4033698660175677519}
   m_SourcePrefab: {fileID: -4161369568681901532, guid: 339477d90f964cd4b901f6a4ac447b10,
     type: 3}
 --- !u!4 &80684496202984455 stripped
@@ -925,6 +929,23 @@ MonoBehaviour:
   - m_Rig: {fileID: 2904946030195947557}
     m_Active: 1
   m_Effectors: []
+--- !u!114 &4033698660175677519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6524491136963248069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22c117ead521e7478da5c1179d46339, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headIK_target: {fileID: 3538862906000964897}
+  leftArmIK_target: {fileID: 5964593407456531395}
+  rightArmIK_target: {fileID: 5847130784970102475}
+  headBone: {fileID: 6206233437459793139}
+  mouthAudio: {fileID: 0}
 --- !u!4 &6924489020588969348 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4839735243208618502, guid: 339477d90f964cd4b901f6a4ac447b10,
