@@ -875,7 +875,7 @@ PrefabInstance:
     - target: {fileID: 8771091787928289351, guid: ab3c1f40bb9bebd44b319783d58c8f1a,
         type: 3}
       propertyPath: m_Name
-      value: Joyce
+      value: JOYCE
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
