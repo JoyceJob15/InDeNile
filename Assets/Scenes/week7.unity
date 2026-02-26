@@ -872,6 +872,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PushButton
       objectReference: {fileID: 0}
+    - target: {fileID: 3399821747579187769, guid: da3b468b35b58334693dfcd04f6e06a7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1123,10 +1128,10 @@ GameObject:
   - component: {fileID: 1983672334}
   - component: {fileID: 1983672333}
   - component: {fileID: 1983672332}
-  - component: {fileID: 1983672336}
   - component: {fileID: 1983672331}
-  - component: {fileID: 1983672339}
   - component: {fileID: 1983672330}
+  - component: {fileID: 1983672336}
+  - component: {fileID: 1983672339}
   - component: {fileID: 1983672338}
   - component: {fileID: 1983672337}
   m_Layer: 0
