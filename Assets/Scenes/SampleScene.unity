@@ -737,7 +737,10 @@ Transform:
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!1 &1819944473
 GameObject:
   m_ObjectHideFlags: 0
@@ -845,6 +848,9 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 38.094, y: 0, z: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -856,7 +862,11 @@ SceneRoots:
   - {fileID: 363586339}
   - {fileID: 632474540}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   - {fileID: 409020514}
+=======
+  - {fileID: 1819944477}
+>>>>>>> Stashed changes
 =======
   - {fileID: 1819944477}
 >>>>>>> Stashed changes
