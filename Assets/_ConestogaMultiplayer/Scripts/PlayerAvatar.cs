@@ -86,6 +86,8 @@ namespace ConestogaMultiplayer
             refs.rightArmIK_target.SetPositionAndRotation(rightHandAnchor.position, rightHandAnchor.rotation);
             // resize player when spacebar is pressed
             if (IsOwner && playerAvatar && Input.GetKeyDown(KeyCode.Space)) SetPlayerHeight();
+            // cycle through the avatars when F8 is pressed
+            if (IsOwner && Input.GetKeyDown(KeyCode.F8)) networkedAvatarNumber.Value = (networkedAvatarNumber.Value + 1) % avatarPrefabs.Length;
         }
     }
 }
