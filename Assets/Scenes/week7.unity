@@ -1907,7 +1907,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98cbd492bc788624ea140937e4f15f3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  balloonPrefab: {fileID: 0}
+  balloonPrefab: {fileID: 393043284572416924, guid: 0d3a8b6eeeba7d24da8d68859ea8035e,
+    type: 3}
   balloonLaunchPoint: {fileID: 1200138236}
   balloonMaxHeight: 3
 --- !u!4 &2122687168
@@ -1918,8 +1919,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2122687165}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.3186136, y: -0.5458579, z: 2.592731}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
