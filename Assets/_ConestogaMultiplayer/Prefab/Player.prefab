@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 787341b6fdc4b264db7856e9761d0e59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basePort: 6000
+  basePort: 6400
 --- !u!114 &5705564524033962462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76d33c2b781cfc419f4ee3ebd26c6ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basePort: 6000
+  basePort: 6400
 --- !u!1 &1171422223679075368
 GameObject:
   m_ObjectHideFlags: 0
