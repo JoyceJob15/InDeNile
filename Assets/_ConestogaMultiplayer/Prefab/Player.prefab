@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: -6647743577618824884}
   - component: {fileID: 4490802299705879176}
   - component: {fileID: 4049065190885661405}
+  - component: {fileID: 5102009539957691502}
+  - component: {fileID: 5705564524033962462}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -59,6 +61,8 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0
 --- !u!114 &-6647743577618824884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,6 +117,32 @@ MonoBehaviour:
   playerAvatarChangedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5102009539957691502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107748613819828001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 787341b6fdc4b264db7856e9761d0e59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basePort: 6000
+--- !u!114 &5705564524033962462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107748613819828001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c76d33c2b781cfc419f4ee3ebd26c6ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basePort: 6000
 --- !u!1 &1171422223679075368
 GameObject:
   m_ObjectHideFlags: 0
