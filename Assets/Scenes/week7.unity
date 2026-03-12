@@ -418,6 +418,8 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0
 --- !u!114 &439140537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -603,7 +605,7 @@ MonoBehaviour:
   m_MaxConnectAttempts: 60
   m_DisconnectTimeoutMS: 30000
   ConnectionData:
-    Address: 10.192.83.70
+    Address: 192.168.1.102
     Port: 7777
     ServerListenAddress: 0.0.0.0
   DebugSimulator:
@@ -1427,6 +1429,8 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 0
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0
 --- !u!114 &1983672337
 MonoBehaviour:
   m_ObjectHideFlags: 0
