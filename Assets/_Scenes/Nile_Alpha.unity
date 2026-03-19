@@ -18762,7 +18762,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1549561313}
   - component: {fileID: 1549561312}
-  - component: {fileID: 1549561311}
+  - component: {fileID: 1549561314}
   m_Layer: 0
   m_Name: DialogueTrigger
   m_TagString: Untagged
@@ -18770,33 +18770,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1549561311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1549561310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bb6748480d193f4b9475eec11b467b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DialogueLines1: []
-  DialogueLines2: []
-  DialogueLines3: []
-  DialogueTrigger1: {fileID: 1549561310}
-  DialogueTrigger2: {fileID: 1495387395}
-  DialogueTrigger3: {fileID: 608007673}
-  Dialogue1: {fileID: 520900018}
-  Dialogue2: {fileID: 1441986196}
-  Dialogue3: {fileID: 2092977657}
-  DialogueContainer1: {fileID: 694522810}
-  DialogueContainer2: {fileID: 344162070}
-  DialogueContainer3: {fileID: 1955089129}
-  delayBetweenItems: 6
-  useUnscaledTime: 0
-  Dialogue1Active: 0
 --- !u!65 &1549561312
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18833,6 +18806,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1857159257}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1549561314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549561310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bb6748480d193f4b9475eec11b467b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DialogueLines1: []
+  DialogueLines2: []
+  DialogueLines3: []
+  DialogueTrigger1: {fileID: 1549561310}
+  DialogueTrigger2: {fileID: 1495387395}
+  DialogueTrigger3: {fileID: 608007673}
+  Dialogue1: {fileID: 520900018}
+  Dialogue2: {fileID: 1441986196}
+  Dialogue3: {fileID: 2092977657}
+  DialogueContainer1: {fileID: 694522810}
+  DialogueContainer2: {fileID: 344162070}
+  DialogueContainer3: {fileID: 1955089129}
+  delayBetweenItems: 0
+  useUnscaledTime: 0
+  Dialogue1Active: 0
 --- !u!1 &1553548094
 GameObject:
   m_ObjectHideFlags: 0
