@@ -9899,6 +9899,7 @@ Transform:
   - {fileID: 577899500}
   - {fileID: 973617458}
   - {fileID: 573451541}
+  - {fileID: 1495387398}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 174.1, z: 0}
 --- !u!114 &799258563
@@ -18219,11 +18220,11 @@ MonoBehaviour:
   DialogueTrigger2: {fileID: 1495387395}
   DialogueTrigger3: {fileID: 608007673}
   Dialogue1: {fileID: 520900018}
-  Dialogue2: {fileID: 0}
+  Dialogue2: {fileID: 1441986196}
   Dialogue3: {fileID: 2092977657}
   DialogueContainer1: {fileID: 694522810}
-  DialogueContainer2: {fileID: 0}
-  DialogueContainer3: {fileID: 608007673}
+  DialogueContainer2: {fileID: 344162070}
+  DialogueContainer3: {fileID: 1955089129}
   delayBetweenItems: 6
   useUnscaledTime: 0
   Dialogue1Active: 0
@@ -18256,12 +18257,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495387395}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.051464483, z: -0, w: 0.99867487}
-  m_LocalPosition: {x: -98.710495, y: 0.49768162, z: 306.98685}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 4.243137, y: 2.3076816, z: 1.9472909}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 799258562}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1509290633
 MeshCollider:
@@ -27974,4 +27975,3 @@ SceneRoots:
   - {fileID: 4939632595832431396}
   - {fileID: 1857159257}
   - {fileID: 7575037699637804176}
-  - {fileID: 1495387398}
