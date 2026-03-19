@@ -71,7 +71,7 @@ public class DialogueController : MonoBehaviour
 
             if (DialogueLines3 == null || DialogueLines3.Length == 0)
         {
-            DialogueLines3 = new string[11];
+            DialogueLines3 = new string[10];
             DialogueLines3[0] = "Hey there! Welcome to Nubia Market.";
             DialogueLines3[1] = "Is that a baby hippo on you? How peculiar..";
             DialogueLines3[2] = "The poor thing seems to be injured.";
@@ -81,8 +81,7 @@ public class DialogueController : MonoBehaviour
             DialogueLines3[6] = "Listen carefully to my instructions!";
             DialogueLines3[7] = "First, Irrigate the crops by feeding the cows.";
             DialogueLines3[8] = "Second, harvest the crops grown by the irrigation.";
-            DialogueLines3[9] = "Finally, you must sieve the grains to separate it from the chaff!";
-            DialogueLines3[10] = "When you are finished, I will give you your medicine";
+            DialogueLines3[9] = "When you are finished, I will give you your medicine";
           
         }
     }
