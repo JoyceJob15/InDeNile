@@ -8059,10 +8059,10 @@ MonoBehaviour:
   DialogueTrigger2: {fileID: 1495387395}
   DialogueTrigger3: {fileID: 608007673}
   Dialogue1: {fileID: 520900018}
-  Dialogue2: {fileID: 0}
+  Dialogue2: {fileID: 1441986196}
   Dialogue3: {fileID: 2092977657}
   DialogueContainer1: {fileID: 694522810}
-  DialogueContainer2: {fileID: 0}
+  DialogueContainer2: {fileID: 344162070}
   DialogueContainer3: {fileID: 1955089129}
   delayBetweenItems: 6
   useUnscaledTime: 0
@@ -18789,10 +18789,10 @@ MonoBehaviour:
   DialogueTrigger2: {fileID: 1495387395}
   DialogueTrigger3: {fileID: 608007673}
   Dialogue1: {fileID: 520900018}
-  Dialogue2: {fileID: 0}
+  Dialogue2: {fileID: 1441986196}
   Dialogue3: {fileID: 2092977657}
   DialogueContainer1: {fileID: 694522810}
-  DialogueContainer2: {fileID: 0}
+  DialogueContainer2: {fileID: 344162070}
   DialogueContainer3: {fileID: 1955089129}
   delayBetweenItems: 6
   useUnscaledTime: 0
