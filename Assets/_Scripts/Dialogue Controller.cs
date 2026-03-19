@@ -9,10 +9,16 @@ public class DialogueController : MonoBehaviour
 
     [SerializeField] private string[] DialogueLines1;
     [SerializeField] private string[] DialogueLines2;
+    [SerializeField] private string[] DialogueLines3;
     [SerializeField] private GameObject DialogueTrigger1;
     [SerializeField] private GameObject DialogueTrigger2;
+    [SerializeField] private GameObject DialogueTrigger3;
     [SerializeField] private TMP_Text Dialogue1;
     [SerializeField] private TMP_Text Dialogue2;
+    [SerializeField] private TMP_Text Dialogue3;
+    [SerializeField] private GameObject DialogueContainer1;
+    [SerializeField] private GameObject DialogueContainer2;
+    [SerializeField] private GameObject DialogueContainer3;
     [SerializeField] private float delayBetweenItems;
     [SerializeField] private bool useUnscaledTime = false; // false => Time.deltaTime, true => Time.unscaledDeltaTime
     [SerializeField] private bool Dialogue1Active;
@@ -21,6 +27,10 @@ public class DialogueController : MonoBehaviour
     //Code
     void Start()
     {
+        if (DialogueContainer1 != null) DialogueContainer1.SetActive(false);
+        if (DialogueContainer2 != null) DialogueContainer2.SetActive(false);
+        if (DialogueContainer3 != null) DialogueContainer3.SetActive(false);
+
         if (DialogueTrigger1 != null) DialogueTrigger1.SetActive(true);
 
         Debug.Log($"DialogueController: delayBetweenItems (Inspector) = {delayBetweenItems} seconds, useUnscaledTime = {useUnscaledTime}");
@@ -48,7 +58,7 @@ public class DialogueController : MonoBehaviour
             DialogueLines2 = new string[12];
             DialogueLines2[0] = "You look like you haven't been to the Nile before";
             DialogueLines2[1] = "Did you know? As pretty as the Nile looks,";
-            DialogueLines2[2]= "It can be just as dangerous.";
+            DialogueLines2[2] = "It can be just as dangerous.";
             DialogueLines2[3] = "The Nile is home to many creatures.";
             DialogueLines2[4] = "Such as, the ferocious Nile crocodile";
             DialogueLines2[5] = "Woah!! Watch out!! Crocs ahead! They seem hungry..";
@@ -58,7 +68,17 @@ public class DialogueController : MonoBehaviour
             DialogueLines2[9] = "That was terrifying! you really knocked them out!";
             DialogueLines2[10] = "Hey look! We reached the village!";
             DialogueLines2[11] = "I've got some errands to run so, you go on ahead!";
-            // rest can be left empty or filled as needed
+        }
+
+        if (DialogueLines3 == null || DialogueLines3.Length == 0)
+        {
+            DialogueLines3 = new string[6];
+            DialogueLines3[0] = "Hello there, traveler.";
+            DialogueLines3[1] = "Welcome to our market.";
+            DialogueLines3[2] = "We trade goods from faraway lands.";
+            DialogueLines3[3] = "If you need supplies, I can help.";
+            DialogueLines3[4] = "Be careful at night — the paths can be rough.";
+            DialogueLines3[5] = "Safe travels.";
         }
     }
 
@@ -69,19 +89,24 @@ public class DialogueController : MonoBehaviour
             isProcessing = true;
 
             // Determine which trigger this script instance is running on.
-            // If you attach this same script to DialogueTrigger1 and DialogueTrigger2,
-            // set DialogueTrigger1/DialogueTrigger2 references accordingly in the Inspector.
             if (gameObject == DialogueTrigger1)
-            {
+            {   
+                if (DialogueContainer1 != null) DialogueContainer1.SetActive(true);
                 StartCoroutine(ProcessDialogueOverTime1());
             }
             else if (gameObject == DialogueTrigger2)
-            {
-                StartCoroutine(ProcessDialogueOverTime2());         
+            {   
+                if (DialogueContainer2 != null) DialogueContainer2.SetActive(true);
+                StartCoroutine(ProcessDialogueOverTime2());
+            }
+            else if (gameObject == DialogueTrigger3)
+            {   
+                if (DialogueContainer3 != null) DialogueContainer3.SetActive(true);
+                StartCoroutine(ProcessDialogueOverTime3());
             }
             else
             {
-                // fallback: choose by the Dialogue1Active flag
+                // fallback: choose by the Dialogue1Active flag (keeps previous behavior)
                 if (Dialogue1Active)
                     StartCoroutine(ProcessDialogueOverTime1());
                 else
@@ -108,8 +133,8 @@ public class DialogueController : MonoBehaviour
             }
         }
 
-        // optional: disable the trigger GameObject after dialogue finishes
         if (DialogueTrigger1 != null) DialogueTrigger1.SetActive(false);
+        if (DialogueContainer1 != null) DialogueContainer1.SetActive(false);
         isProcessing = false;
     }
 
@@ -132,6 +157,30 @@ public class DialogueController : MonoBehaviour
         }
 
         if (DialogueTrigger2 != null) DialogueTrigger2.SetActive(false);
+        if (DialogueContainer2 != null) DialogueContainer2.SetActive(false);
+        isProcessing = false;
+    }
+
+    IEnumerator ProcessDialogueOverTime3()
+    {
+        if (DialogueLines3 == null) yield break;
+
+        for (int i = 0; i < DialogueLines3.Length; i++)
+        {
+            Debug.Log($"[{Time.realtimeSinceStartup:F2}s realtime] Processing item: {DialogueLines3[i]} at index {i}");
+            if (Dialogue3 != null) Dialogue3.text = DialogueLines3[i];
+
+            float elapsed = 0f;
+            float waitFor = Mathf.Max(0f, delayBetweenItems);
+            while (elapsed < waitFor)
+            {
+                elapsed += useUnscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
+                yield return null;
+            }
+        }
+
+        if (DialogueTrigger3 != null) DialogueTrigger3.SetActive(false);
+        if (DialogueContainer3 != null) DialogueContainer3.SetActive(false);
         isProcessing = false;
     }
 }
