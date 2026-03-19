@@ -39,10 +39,9 @@ public class DialogueController : MonoBehaviour
         if (DialogueLines1 == null || DialogueLines1.Length == 0)
         {
             DialogueLines1 = new string[12];
-            DialogueLines1[0] = "Hey you!";
-            DialogueLines1[1] = "Come here!";
+            DialogueLines1[0] = "Hey you! Over here!!";
             DialogueLines1[2] = "I found this injured baby hippo..I am a busy ferryman";
-            DialogueLines1[3] = "I do not have time to care for babies!";
+            DialogueLines1[3] = "I do not have time to care for baby animals!";
             DialogueLines1[4] = "I need to make a delivery at a village nearby";
             DialogueLines1[5] = "There might be a farmer there who would be willing";
             DialogueLines1[6] = "to give you some medicine for this little guy.";
@@ -62,27 +61,33 @@ public class DialogueController : MonoBehaviour
             DialogueLines2[3] = "The Nile is home to many creatures.";
             DialogueLines2[4] = "Such as, the ferocious Nile crocodile";
             DialogueLines2[5] = "Woah!! Watch out!! Crocs ahead! They seem hungry..";
-            DialogueLines2[6] = "They're attacking my boat!! This is not good!";
-            DialogueLines2[7] = "Quick! Grab a paddle and hit them!";
-            DialogueLines2[8] = "Are they gone yet?!";
-            DialogueLines2[9] = "That was terrifying! you really knocked them out!";
+            DialogueLines2[6] = "Be careful not to fall into the water!";
+            DialogueLines2[7] = "Even if you don't become croc food, the Nile is extremely deep!";
+            DialogueLines2[8] = "It can be as deep as 36 feet!!";
+            DialogueLines2[9] = "That's about two Nile crocodiles lined up together! Scary!";
             DialogueLines2[10] = "Hey look! We reached the village!";
-            DialogueLines2[11] = "I've got some errands to run so, you go on ahead!";
+            DialogueLines2[11] = "I've got some errands to run so, you go get the medicine!";
         }
 
-        if (DialogueLines3 == null || DialogueLines3.Length == 0)
+            if (DialogueLines3 == null || DialogueLines3.Length == 0)
         {
-            DialogueLines3 = new string[6];
-            DialogueLines3[0] = "Hello there, traveler.";
-            DialogueLines3[1] = "Welcome to our market.";
-            DialogueLines3[2] = "We trade goods from faraway lands.";
-            DialogueLines3[3] = "If you need supplies, I can help.";
-            DialogueLines3[4] = "Be careful at night — the paths can be rough.";
-            DialogueLines3[5] = "Safe travels.";
+            DialogueLines3 = new string[11];
+            DialogueLines3[0] = "Hey there! Welcome to Nubia Market.";
+            DialogueLines3[1] = "Is that a baby hippo on you? How peculiar..";
+            DialogueLines3[2] = "The poor thing seems to be injured.";
+            DialogueLines3[3] = "If you have something to trade, I can give you some medicine!";
+            DialogueLines3[4] = "You don't have anything to trade? Well..";
+            DialogueLines3[5] = "Then I suppose you could pay me with some labour!";
+            DialogueLines3[6] = "Listen carefully to my instructions!";
+            DialogueLines3[7] = "First, Irrigate the crops by feeding the cows.";
+            DialogueLines3[8] = "Second, harvest the crops grown by the irrigation.";
+            DialogueLines3[9] = "Finally, you must sieve the grains to separate it from the chaff!";
+            DialogueLines3[10] = "When you are finished, I will give you your medicine";
+          
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
         if (!isProcessing && other.CompareTag("Player"))
         {
@@ -183,4 +188,5 @@ public class DialogueController : MonoBehaviour
         if (DialogueContainer3 != null) DialogueContainer3.SetActive(false);
         isProcessing = false;
     }
+    
 }
