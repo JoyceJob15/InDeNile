@@ -17,7 +17,10 @@ namespace ConestogaMultiplayer
         public override void OnNetworkSpawn()
         {
             base.OnNetworkSpawn();
-            if (!IsOwner) return;
+            if (IsOwner) Respawn();
+        }
+
+        void Respawn() {
             GameObject[] spawnpoints = GameObject.FindGameObjectsWithTag("Respawn");
             if (spawnpoints.Length > 0)
             {
@@ -29,6 +32,7 @@ namespace ConestogaMultiplayer
         private void LateUpdate()
         {
             if (!IsOwner) return;
+            if (transform.position.y < -10) Respawn();
             head.SetPositionAndRotation(TrackerReferences.instance.headTracker.position, TrackerReferences.instance.headTracker.rotation);
             leftHand.SetPositionAndRotation(TrackerReferences.instance.leftHandTracker.position, TrackerReferences.instance.leftHandTracker.rotation);
             rightHand.SetPositionAndRotation(TrackerReferences.instance.rightHandTracker.position, TrackerReferences.instance.rightHandTracker.rotation);

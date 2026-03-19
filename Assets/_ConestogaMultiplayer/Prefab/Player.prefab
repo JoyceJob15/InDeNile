@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1856593924034026132}
   - component: {fileID: 2440348524015434648}
-  - component: {fileID: -6647743577618824884}
   - component: {fileID: 4490802299705879176}
   - component: {fileID: 4049065190885661405}
   - component: {fileID: 5102009539957691502}
   - component: {fileID: 5705564524033962462}
+  - component: {fileID: 8079255388535071143}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -63,21 +63,6 @@ MonoBehaviour:
   AutoObjectParentSync: 1
   SyncOwnerTransformWhenParented: 1
   AllowOwnerToParent: 0
---- !u!114 &-6647743577618824884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 107748613819828001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3027a4e8189dace458fe280ada33ec5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  head: {fileID: 1950400712277525916}
-  leftHand: {fileID: 2690558603805851579}
-  rightHand: {fileID: 8140498858875359908}
 --- !u!114 &4490802299705879176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +128,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basePort: 6400
+--- !u!114 &8079255388535071143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107748613819828001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50b7a5516aa6e3743b2014beb4c20d3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  head: {fileID: 1950400712277525916}
+  leftHand: {fileID: 2690558603805851579}
+  rightHand: {fileID: 8140498858875359908}
 --- !u!1 &1171422223679075368
 GameObject:
   m_ObjectHideFlags: 0
