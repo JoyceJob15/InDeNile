@@ -310,7 +310,7 @@ GameObject:
   - component: {fileID: 755818472}
   - component: {fileID: 755818471}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: waterCube
   m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
