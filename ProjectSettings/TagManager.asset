@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Respawn_Nile
   - Destroyer
+  - Water
   layers:
   - Default
   - TransparentFX
