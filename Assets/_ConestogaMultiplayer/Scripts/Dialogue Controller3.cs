@@ -13,12 +13,25 @@ public class DialogueController3 : MonoBehaviour
     [SerializeField] private float delayBetweenItems = 2f;
     [SerializeField] private bool useUnscaledTime = false; // false => Time.deltaTime, true => Time.unscaledDeltaTime
 
+    [Header("Audio (optional)")]
+    [SerializeField] private AudioSource DialogueAudioSource;
+    [SerializeField] private AudioClip[] DialogueAudio3;
+    [SerializeField] private bool waitForAudioToFinish = false;
+
     private bool isProcessing = false;
 
     void Start()
     {
         if (DialogueContainer3 != null) DialogueContainer3.SetActive(false);
         if (DialogueTrigger3 != null) DialogueTrigger3.SetActive(true);
+
+        // Ensure we have an AudioSource if audio clips were assigned but source wasn't
+        if ((DialogueAudio3 != null && DialogueAudio3.Length > 0) && DialogueAudioSource == null)
+        {
+            DialogueAudioSource = GetComponent<AudioSource>();
+            if (DialogueAudioSource == null)
+                DialogueAudioSource = gameObject.AddComponent<AudioSource>();
+        }
 
         // Default/sample lines only if nothing assigned in Inspector
         if (DialogueLines3 == null || DialogueLines3.Length == 0)
@@ -60,8 +73,25 @@ public class DialogueController3 : MonoBehaviour
             Debug.Log($"[{Time.realtimeSinceStartup:F2}s realtime] (C3) {DialogueLines3[i]}");
             if (Dialogue3 != null) Dialogue3.text = DialogueLines3[i];
 
+            // Play audio for this line if available
+            AudioClip clipToPlay = null;
+            if (DialogueAudio3 != null && i < DialogueAudio3.Length)
+                clipToPlay = DialogueAudio3[i];
+
+            if (DialogueAudioSource != null && clipToPlay != null)
+            {
+                DialogueAudioSource.PlayOneShot(clipToPlay);
+            }
+
             float elapsed = 0f;
             float waitFor = Mathf.Max(0f, delayBetweenItems);
+
+            // if requested, make sure we wait at least as long as the clip length
+            if (waitForAudioToFinish && clipToPlay != null)
+            {
+                waitFor = Mathf.Max(waitFor, clipToPlay.length);
+            }
+
             while (elapsed < waitFor)
             {
                 elapsed += useUnscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
