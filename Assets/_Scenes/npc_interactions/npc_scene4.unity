@@ -627,6 +627,14 @@ MonoBehaviour:
   DialogueContainer5: {fileID: 0}
   delayBetweenItems: 2
   useUnscaledTime: 0
+  DialogueAudioSource: {fileID: 1971946895}
+  DialogueAudio5:
+  - {fileID: 8300000, guid: 26919f4d8d91f5144ac80901d3495040, type: 3}
+  - {fileID: 8300000, guid: 5d8577ca6d176b145b1f48b62c8d74e6, type: 3}
+  - {fileID: 8300000, guid: 13fd4baf1235c8047bfc143881933398, type: 3}
+  - {fileID: 8300000, guid: bb09b04ec3f4dd0478f129e482129d0c, type: 3}
+  - {fileID: 8300000, guid: b8c41678d4500b444a121df3406b4034, type: 3}
+  waitForAudioToFinish: 1
 --- !u!1001 &1971946893
 PrefabInstance:
   m_ObjectHideFlags: 0

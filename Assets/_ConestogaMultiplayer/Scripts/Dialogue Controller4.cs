@@ -4,7 +4,6 @@ using UnityEngine;
 using TMPro;
 
 // DialogueController4 - renamed and fully using '4' suffix for fields/methods.
-
 public class DialogueController4 : MonoBehaviour
 {
     // Variables (controller 4)
@@ -12,8 +11,13 @@ public class DialogueController4 : MonoBehaviour
     [SerializeField] private GameObject DialogueTrigger4;
     [SerializeField] private TMP_Text Dialogue4;
     [SerializeField] private GameObject DialogueContainer4;
-    [SerializeField] private float delayBetweenItems;
-    [SerializeField] private bool useUnscaledTime = false;
+    [SerializeField] private float delayBetweenItems = 2f;
+    [SerializeField] private bool useUnscaledTime = false; // false => Time.deltaTime, true => Time.unscaledDeltaTime
+
+    [Header("Audio (optional)")]
+    [SerializeField] private AudioSource DialogueAudioSource;
+    [SerializeField] private AudioClip[] DialogueAudio4;
+    [SerializeField] private bool waitForAudioToFinish = false;
 
     private bool isProcessing = false;
 
@@ -22,9 +26,17 @@ public class DialogueController4 : MonoBehaviour
         if (DialogueContainer4 != null) DialogueContainer4.SetActive(false);
         if (DialogueTrigger4 != null) DialogueTrigger4.SetActive(true);
 
+        // Ensure we have an AudioSource if audio clips were assigned but source wasn't
+        if ((DialogueAudio4 != null && DialogueAudio4.Length > 0) && DialogueAudioSource == null)
+        {
+            DialogueAudioSource = GetComponent<AudioSource>();
+            if (DialogueAudioSource == null)
+                DialogueAudioSource = gameObject.AddComponent<AudioSource>();
+        }
+
         if (DialogueLines4 == null || DialogueLines4.Length == 0)
         {
-            DialogueLines4 = new string[10];
+            DialogueLines4 = new string[9];
             DialogueLines4[0] = "Welcome to Nubia village!";
             DialogueLines4[1] = "Woah! Is that a baby hippo you are carrying?";
             DialogueLines4[2] = "Poor thing seems to be injured.";
@@ -34,7 +46,6 @@ public class DialogueController4 : MonoBehaviour
             DialogueLines4[6] = "First, Irrigate the crops by feeding the cows.";
             DialogueLines4[7] = "Second, harvest the crops that were grown from the irrigation.";
             DialogueLines4[8] = "When you are finished, I will give you the medicine";
-            DialogueLines4[9] = "Ah! You did a great job! Here is the medicine.";
         }
     }
 
@@ -42,7 +53,7 @@ public class DialogueController4 : MonoBehaviour
     {
         if (!isProcessing && other.CompareTag("Player"))
         {
-            if (gameObject == DialogueTrigger4)
+            if (gameObject == DialogueTrigger4 || DialogueTrigger4 == null)
             {
                 isProcessing = true;
                 if (DialogueContainer4 != null) DialogueContainer4.SetActive(true);
@@ -60,8 +71,25 @@ public class DialogueController4 : MonoBehaviour
             Debug.Log($"[{Time.realtimeSinceStartup:F2}s realtime] (C4) {DialogueLines4[i]}");
             if (Dialogue4 != null) Dialogue4.text = DialogueLines4[i];
 
+            // Play audio for this line if available
+            AudioClip clipToPlay = null;
+            if (DialogueAudio4 != null && i < DialogueAudio4.Length)
+                clipToPlay = DialogueAudio4[i];
+
+            if (DialogueAudioSource != null && clipToPlay != null)
+            {
+                DialogueAudioSource.PlayOneShot(clipToPlay);
+            }
+
             float elapsed = 0f;
             float waitFor = Mathf.Max(0f, delayBetweenItems);
+
+            // if requested, make sure we wait at least as long as the clip length
+            if (waitForAudioToFinish && clipToPlay != null)
+            {
+                waitFor = Mathf.Max(waitFor, clipToPlay.length);
+            }
+
             while (elapsed < waitFor)
             {
                 elapsed += useUnscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
