@@ -3254,6 +3254,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 865882354}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_OnExit:
     m_PersistentCalls:
       m_Calls: []
@@ -3337,7 +3349,7 @@ Transform:
   m_GameObject: {fileID: 1574594590}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.11616193, z: -0, w: 0.9932303}
-  m_LocalPosition: {x: -0.36, y: 0.644, z: 0.04}
+  m_LocalPosition: {x: -1.4, y: 0.644, z: 0.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3386,7 +3398,7 @@ PlayableDirector:
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 671755a017ee96c41be228393fe5c07a, type: 2}
   m_InitialState: 0
-  m_WrapMode: 2
+  m_WrapMode: 1
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
@@ -3541,7 +3553,7 @@ PrefabInstance:
     - target: {fileID: 3702511058728641490, guid: 1001bba7c0e579c46a0e32218795c553,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.012
+      value: 2.675
       objectReference: {fileID: 0}
     - target: {fileID: 3702511058728641490, guid: 1001bba7c0e579c46a0e32218795c553,
         type: 3}
