@@ -5179,25 +5179,35 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Water
       objectReference: {fileID: 0}
+    - target: {fileID: 6360616215213227745, guid: 2ede0b03185175642a4ef08e52f131c7,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bcd7b137c82df3b4fb01edcff4fbbbf1, type: 2}
     - target: {fileID: 8495161773890356119, guid: 2ede0b03185175642a4ef08e52f131c7,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.91991
+      value: 0.83137226
+      objectReference: {fileID: 0}
+    - target: {fileID: 8495161773890356119, guid: 2ede0b03185175642a4ef08e52f131c7,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8410471
       objectReference: {fileID: 0}
     - target: {fileID: 8495161773890356119, guid: 2ede0b03185175642a4ef08e52f131c7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.02
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 8495161773890356119, guid: 2ede0b03185175642a4ef08e52f131c7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.69
+      value: 2.4
       objectReference: {fileID: 0}
     - target: {fileID: 8495161773890356119, guid: 2ede0b03185175642a4ef08e52f131c7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.01
+      value: 1.03
       objectReference: {fileID: 0}
     - target: {fileID: 8495161773890356119, guid: 2ede0b03185175642a4ef08e52f131c7,
         type: 3}
