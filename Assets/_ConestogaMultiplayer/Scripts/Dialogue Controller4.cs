@@ -11,6 +11,8 @@ public class DialogueController4 : MonoBehaviour
     [SerializeField] private GameObject DialogueTrigger4;
     [SerializeField] private TMP_Text Dialogue4;
     [SerializeField] private GameObject DialogueContainer4;
+    [SerializeField] private GameObject Arrow;
+    [SerializeField] private GameObject Arrow2;
     [SerializeField] private float delayBetweenItems = 2f;
     [SerializeField] private bool useUnscaledTime = false; // false => Time.deltaTime, true => Time.unscaledDeltaTime
 
@@ -25,7 +27,8 @@ public class DialogueController4 : MonoBehaviour
     {
         if (DialogueContainer4 != null) DialogueContainer4.SetActive(false);
         if (DialogueTrigger4 != null) DialogueTrigger4.SetActive(true);
-
+        //if (Arrow != null) Arrow.SetActive(false);
+        if (Arrow2 != null) Arrow2.SetActive(false);
         // Ensure we have an AudioSource if audio clips were assigned but source wasn't
         if ((DialogueAudio4 != null && DialogueAudio4.Length > 0) && DialogueAudioSource == null)
         {
@@ -99,6 +102,8 @@ public class DialogueController4 : MonoBehaviour
 
         if (DialogueTrigger4 != null) DialogueTrigger4.SetActive(false);
         if (DialogueContainer4 != null) DialogueContainer4.SetActive(false);
+        if (Arrow != null) Arrow.SetActive(false); // keep existing behavior
+        if (Arrow2 != null) Arrow2.SetActive(true); // enable Arrow2 when dialogue ends
         isProcessing = false;
     }
 }

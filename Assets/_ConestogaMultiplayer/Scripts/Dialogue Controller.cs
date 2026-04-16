@@ -50,7 +50,7 @@ public class DialogueController : MonoBehaviour
         if (DialogueTrigger1 != null) DialogueTrigger1.SetActive(true);
 
         // Ensure Arrow and Arrow2 are disabled at start
-       // if (Arrow != null) Arrow.SetActive(false);
+        //if (Arrow != null) Arrow.SetActive(false);
         if (Arrow2 != null) Arrow2.SetActive(false);
 
         // Ensure the SceneTrigger1 object is disabled at start (will be enabled after dialogue finishes)
@@ -88,7 +88,7 @@ public class DialogueController : MonoBehaviour
             {
                 isProcessing = true;
                 if (DialogueContainer1 != null) DialogueContainer1.SetActive(true);
-               // if (Arrow != null) Arrow.SetActive(true); // enable arrow like the container (left commented intentionally)
+                
                 StartCoroutine(ProcessDialogueOverTime1());
             }
         }

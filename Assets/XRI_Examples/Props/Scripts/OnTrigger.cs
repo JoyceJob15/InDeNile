@@ -8,6 +8,8 @@ namespace UnityEngine.XR.Content.Interaction
     /// </summary>
     public class OnTrigger : MonoBehaviour
     {
+        [SerializeField] private GameObject Arrow2;
+        [SerializeField] private GameObject Arrow3;
         [Serializable] public class TriggerEvent : UnityEvent<GameObject> { }
 
         [SerializeField]
@@ -41,12 +43,20 @@ namespace UnityEngine.XR.Content.Interaction
         {
             if (CanTrigger(other.gameObject))
                 m_OnEnter?.Invoke(other.gameObject);
+            if (Arrow2 != null)
+                Arrow2.SetActive(false);
+            Arrow3.SetActive(true);
         }
 
         void OnTriggerExit(Collider other)
         {
             if (CanTrigger(other.gameObject))
                 m_OnExit?.Invoke(other.gameObject);
+            // If the incoming object is tagged "bait", disable Arrow2
+            if (other.gameObject.CompareTag("bait"))
+            {
+                
+            }
         }
 
         void OnParticleCollision(GameObject other)
