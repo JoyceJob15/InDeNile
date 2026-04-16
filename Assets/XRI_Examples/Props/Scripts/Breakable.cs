@@ -10,6 +10,7 @@ namespace UnityEngine.XR.Content.Interaction
     {
         // switched to a static global counter so destroyed instances don't lose the accumulated count
         private static int s_CropCount = 0;
+        private static int s_HitCount = 0;
 
         [SerializeField] private GameObject Arrow3;
         [SerializeField] private GameObject Arrow1;
@@ -52,9 +53,15 @@ namespace UnityEngine.XR.Content.Interaction
 
                 // increment global counter and log it
                 s_CropCount++;
+                s_HitCount++;
                 UnityEngine.Debug.Log($"Breakable: global crop count = {s_CropCount}");
 
-                if (s_CropCount >= 15)
+                if (s_HitCount >= 3)
+                {
+                    UnityEngine.Debug.Log("Breakable: Hit count reached 30, resetting crop count to 0");
+                    if (SceneTrigger != null) SceneTrigger.SetActive(true);
+                }
+                    if (s_CropCount >= 15)
                 {
                     if (Arrow3 != null) Arrow3.SetActive(false);
                     if (Arrow1 != null) Arrow1.SetActive(true);
