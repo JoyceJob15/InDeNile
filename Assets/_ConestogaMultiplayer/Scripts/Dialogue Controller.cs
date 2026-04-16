@@ -8,6 +8,7 @@ using TMPro;
 
 public class DialogueController : MonoBehaviour
 {
+
     // Variables (controller 1 active)
     [SerializeField] private string[] DialogueLines1;
     // [SerializeField] private string[] DialogueLines2; // commented out
@@ -34,12 +35,18 @@ public class DialogueController : MonoBehaviour
     [SerializeField] private AudioClip[] DialogueAudio1;
     [SerializeField] private bool waitForAudioToFinish = false; // if true, each step waits until clip length or delayBetweenItems whichever is longer
 
+    [Header("Scene Progression")]
+    [SerializeField] private GameObject SceneTrigger1; // NEW: assign the GameObject to enable after dialogue finishes
+
     private bool isProcessing = false;
 
     void Start()
     {
         if (DialogueContainer1 != null) DialogueContainer1.SetActive(false);
         if (DialogueTrigger1 != null) DialogueTrigger1.SetActive(true);
+
+        // Ensure the SceneTrigger1 object is disabled at start (will be enabled after dialogue finishes)
+        SceneTrigger1.SetActive(false);
 
         // Ensure we have an AudioSource if audio clips were assigned but source wasn't
         if ((DialogueAudio1 != null && DialogueAudio1.Length > 0) && DialogueAudioSource == null)
@@ -116,6 +123,9 @@ public class DialogueController : MonoBehaviour
         if (DialogueTrigger1 != null) DialogueTrigger1.SetActive(false);
         if (DialogueContainer1 != null) DialogueContainer1.SetActive(false);
         isProcessing = false;
+
+        // NEW: enable a GameObject named "SceneTrigger1" when all dialogues are finished
+        SceneTrigger1.SetActive(true);
     }
 
     // Controller 2 & 3 logic/commented intentionally:
