@@ -8,6 +8,8 @@ TagManager:
   - Destroyer
   - Water
   - Bait
+  - SceneTrigger
+  - PlayerHigh
   layers:
   - Default
   - TransparentFX
