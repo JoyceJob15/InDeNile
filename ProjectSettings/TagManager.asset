@@ -10,6 +10,9 @@ TagManager:
   - Bait
   - SceneTrigger
   - PlayerHigh
+  - Projectile
+  - Flame
+  - Medicine
   layers:
   - Default
   - TransparentFX
