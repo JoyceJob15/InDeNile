@@ -40,7 +40,7 @@ public class DialogueController5 : MonoBehaviour
             DialogueLines5[0] = "Hooray! you got the medicine. Quick! feed it to the hippo!";
             DialogueLines5[1] = "I see the hippo's family up ahead";
             DialogueLines5[2] = "Hold the hippo in your hands and let it go into the water";
-            DialogueLines5[3] = "I tam glad we were able to reunite the little guy with his family.";
+            DialogueLines5[3] = "I am glad we were able to reunite the little guy with his family.";
             DialogueLines5[4] = "Thank you for accompanying me on this journey!";
         }
     }
