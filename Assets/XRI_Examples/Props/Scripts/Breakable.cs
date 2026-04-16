@@ -8,6 +8,11 @@ namespace UnityEngine.XR.Content.Interaction
     /// </summary>
     public class Breakable : MonoBehaviour
     {
+        // switched to a static global counter so destroyed instances don't lose the accumulated count
+        private static int s_CropCount = 0;
+
+        [SerializeField] private GameObject Arrow3;
+        [SerializeField] private GameObject Arrow1;
         [Serializable] public class BreakEvent : UnityEvent<GameObject, GameObject> { }
 
         [SerializeField]
@@ -41,6 +46,17 @@ namespace UnityEngine.XR.Content.Interaction
                 m_Destroyed = true;
                 var brokenVersion = Instantiate(m_BrokenVersion, transform.position, transform.rotation);
                 m_OnBreak.Invoke(collision.gameObject, brokenVersion);
+
+                // increment global counter and log it
+                s_CropCount++;
+                UnityEngine.Debug.Log($"Breakable: global crop count = {s_CropCount}");
+
+                if (s_CropCount >= 15)
+                {
+                    if (Arrow3 != null) Arrow3.SetActive(false);
+                    if (Arrow1 != null) Arrow1.SetActive(true);
+                }
+
                 Destroy(gameObject);
             }
         }
