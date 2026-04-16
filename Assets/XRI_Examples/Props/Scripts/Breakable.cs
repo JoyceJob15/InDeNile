@@ -13,9 +13,6 @@ namespace UnityEngine.XR.Content.Interaction
 
         [SerializeField] private GameObject Arrow3;
         [SerializeField] private GameObject Arrow1;
-        [SerializeField] private GameObject Medbag;
-        [SerializeField] private GameObject Character;
-        [SerializeField] private GameObject SceneTrigger;
         [Serializable] public class BreakEvent : UnityEvent<GameObject, GameObject> { }
 
         [SerializeField]
@@ -58,12 +55,6 @@ namespace UnityEngine.XR.Content.Interaction
                 {
                     if (Arrow3 != null) Arrow3.SetActive(false);
                     if (Arrow1 != null) Arrow1.SetActive(true);
-                    if (Medbag != null) Medbag.SetActive(true);
-                    if (SceneTrigger != null) SceneTrigger.SetActive(true);
-
-                    // rotate Character by 45 degrees around its local Y axis
-                    if (Character != null)
-                        Character.transform.Rotate(0f, 60f, 0f, UnityEngine.Space.Self);
                 }
 
                 Destroy(gameObject);
