@@ -26,6 +26,10 @@ public class DialogueController : MonoBehaviour
     // [SerializeField] private GameObject DialogueContainer2; // commented out
     // [SerializeField] private GameObject DialogueContainer3; // commented out
 
+    // NEW: arrow GameObjects to behave like the container
+    [SerializeField] private GameObject Arrow;
+    [SerializeField] private GameObject Arrow2;
+
     [Header("Timing")]
     [SerializeField] private float delayBetweenItems;
     [SerializeField] private bool useUnscaledTime = false; // false => Time.deltaTime, true => Time.unscaledDeltaTime
@@ -45,8 +49,12 @@ public class DialogueController : MonoBehaviour
         if (DialogueContainer1 != null) DialogueContainer1.SetActive(false);
         if (DialogueTrigger1 != null) DialogueTrigger1.SetActive(true);
 
+        // Ensure Arrow and Arrow2 are disabled at start
+       // if (Arrow != null) Arrow.SetActive(false);
+        if (Arrow2 != null) Arrow2.SetActive(false);
+
         // Ensure the SceneTrigger1 object is disabled at start (will be enabled after dialogue finishes)
-        SceneTrigger1.SetActive(false);
+        if (SceneTrigger1 != null) SceneTrigger1.SetActive(false);
 
         // Ensure we have an AudioSource if audio clips were assigned but source wasn't
         if ((DialogueAudio1 != null && DialogueAudio1.Length > 0) && DialogueAudioSource == null)
@@ -80,6 +88,7 @@ public class DialogueController : MonoBehaviour
             {
                 isProcessing = true;
                 if (DialogueContainer1 != null) DialogueContainer1.SetActive(true);
+               // if (Arrow != null) Arrow.SetActive(true); // enable arrow like the container (left commented intentionally)
                 StartCoroutine(ProcessDialogueOverTime1());
             }
         }
@@ -122,10 +131,12 @@ public class DialogueController : MonoBehaviour
 
         if (DialogueTrigger1 != null) DialogueTrigger1.SetActive(false);
         if (DialogueContainer1 != null) DialogueContainer1.SetActive(false);
+        if (Arrow != null) Arrow.SetActive(false); // keep existing behavior
+        if (Arrow2 != null) Arrow2.SetActive(true); // enable Arrow2 when dialogue ends
         isProcessing = false;
 
         // NEW: enable a GameObject named "SceneTrigger1" when all dialogues are finished
-        SceneTrigger1.SetActive(true);
+        if (SceneTrigger1 != null) SceneTrigger1.SetActive(true);
     }
 
     // Controller 2 & 3 logic/commented intentionally:
