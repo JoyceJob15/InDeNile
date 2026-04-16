@@ -429,12 +429,145 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc3a8c5ad509204cb2ac78f2182017c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Arrow3: {fileID: 0}
+  Arrow1: {fileID: 0}
+  Medbag: {fileID: 0}
+  Character: {fileID: 0}
+  SceneTrigger: {fileID: 0}
   m_BrokenVersion: {fileID: 4843795417719525664, guid: c5e469f1e7bb97f4b91dfa1a07793b1a,
     type: 3}
   m_ColliderTag: Destroyer
   m_OnBreak:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &81972817
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 81972819}
+  - component: {fileID: 81972818}
+  m_Layer: 0
+  m_Name: bgm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &81972818
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81972817}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 77031b404c702e145a4765a584405473, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.04
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &81972819
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81972817}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 52.22252, y: 3.7941957, z: -106.74916}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &85596742
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,6 +962,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc3a8c5ad509204cb2ac78f2182017c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Arrow3: {fileID: 0}
+  Arrow1: {fileID: 0}
+  Medbag: {fileID: 0}
+  Character: {fileID: 0}
+  SceneTrigger: {fileID: 0}
   m_BrokenVersion: {fileID: 4843795417719525664, guid: c5e469f1e7bb97f4b91dfa1a07793b1a,
     type: 3}
   m_ColliderTag: Destroyer
@@ -1169,6 +1307,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc3a8c5ad509204cb2ac78f2182017c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Arrow3: {fileID: 0}
+  Arrow1: {fileID: 0}
+  Medbag: {fileID: 0}
+  Character: {fileID: 0}
+  SceneTrigger: {fileID: 0}
   m_BrokenVersion: {fileID: 4843795417719525664, guid: c5e469f1e7bb97f4b91dfa1a07793b1a,
     type: 3}
   m_ColliderTag: Destroyer
@@ -2434,6 +2577,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc3a8c5ad509204cb2ac78f2182017c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Arrow3: {fileID: 0}
+  Arrow1: {fileID: 0}
+  Medbag: {fileID: 0}
+  Character: {fileID: 0}
+  SceneTrigger: {fileID: 0}
   m_BrokenVersion: {fileID: 4843795417719525664, guid: c5e469f1e7bb97f4b91dfa1a07793b1a,
     type: 3}
   m_ColliderTag: Destroyer
@@ -3143,6 +3291,8 @@ MonoBehaviour:
   DialogueTrigger4: {fileID: 600342503}
   Dialogue4: {fileID: 933148264}
   DialogueContainer4: {fileID: 1368247524}
+  Arrow: {fileID: 0}
+  Arrow2: {fileID: 0}
   delayBetweenItems: 0
   useUnscaledTime: 0
   DialogueAudioSource: {fileID: 0}
@@ -3424,6 +3574,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc3a8c5ad509204cb2ac78f2182017c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Arrow3: {fileID: 0}
+  Arrow1: {fileID: 0}
+  Medbag: {fileID: 0}
+  Character: {fileID: 0}
+  SceneTrigger: {fileID: 0}
   m_BrokenVersion: {fileID: 4843795417719525664, guid: c5e469f1e7bb97f4b91dfa1a07793b1a,
     type: 3}
   m_ColliderTag: Destroyer
@@ -4230,6 +4385,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc3a8c5ad509204cb2ac78f2182017c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Arrow3: {fileID: 0}
+  Arrow1: {fileID: 0}
+  Medbag: {fileID: 0}
+  Character: {fileID: 0}
+  SceneTrigger: {fileID: 0}
   m_BrokenVersion: {fileID: 4843795417719525664, guid: c5e469f1e7bb97f4b91dfa1a07793b1a,
     type: 3}
   m_ColliderTag: Destroyer
@@ -4409,6 +4569,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc3a8c5ad509204cb2ac78f2182017c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Arrow3: {fileID: 0}
+  Arrow1: {fileID: 0}
+  Medbag: {fileID: 0}
+  Character: {fileID: 0}
+  SceneTrigger: {fileID: 0}
   m_BrokenVersion: {fileID: 4843795417719525664, guid: c5e469f1e7bb97f4b91dfa1a07793b1a,
     type: 3}
   m_ColliderTag: Destroyer
@@ -4749,6 +4914,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc3a8c5ad509204cb2ac78f2182017c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Arrow3: {fileID: 0}
+  Arrow1: {fileID: 0}
+  Medbag: {fileID: 0}
+  Character: {fileID: 0}
+  SceneTrigger: {fileID: 0}
   m_BrokenVersion: {fileID: 4843795417719525664, guid: c5e469f1e7bb97f4b91dfa1a07793b1a,
     type: 3}
   m_ColliderTag: Destroyer
@@ -8704,6 +8874,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc3a8c5ad509204cb2ac78f2182017c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Arrow3: {fileID: 0}
+  Arrow1: {fileID: 0}
+  Medbag: {fileID: 0}
+  Character: {fileID: 0}
+  SceneTrigger: {fileID: 0}
   m_BrokenVersion: {fileID: 4843795417719525664, guid: c5e469f1e7bb97f4b91dfa1a07793b1a,
     type: 3}
   m_ColliderTag: Destroyer
@@ -8911,6 +9086,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc3a8c5ad509204cb2ac78f2182017c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Arrow3: {fileID: 0}
+  Arrow1: {fileID: 0}
+  Medbag: {fileID: 0}
+  Character: {fileID: 0}
+  SceneTrigger: {fileID: 0}
   m_BrokenVersion: {fileID: 4843795417719525664, guid: c5e469f1e7bb97f4b91dfa1a07793b1a,
     type: 3}
   m_ColliderTag: Destroyer
@@ -9536,6 +9716,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc3a8c5ad509204cb2ac78f2182017c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Arrow3: {fileID: 0}
+  Arrow1: {fileID: 0}
+  Medbag: {fileID: 0}
+  Character: {fileID: 0}
+  SceneTrigger: {fileID: 0}
   m_BrokenVersion: {fileID: 4843795417719525664, guid: c5e469f1e7bb97f4b91dfa1a07793b1a,
     type: 3}
   m_ColliderTag: Destroyer
@@ -9928,6 +10113,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc3a8c5ad509204cb2ac78f2182017c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Arrow3: {fileID: 0}
+  Arrow1: {fileID: 0}
+  Medbag: {fileID: 0}
+  Character: {fileID: 0}
+  SceneTrigger: {fileID: 0}
   m_BrokenVersion: {fileID: 4843795417719525664, guid: c5e469f1e7bb97f4b91dfa1a07793b1a,
     type: 3}
   m_ColliderTag: Destroyer
@@ -12347,6 +12537,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc3a8c5ad509204cb2ac78f2182017c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Arrow3: {fileID: 0}
+  Arrow1: {fileID: 0}
+  Medbag: {fileID: 0}
+  Character: {fileID: 0}
+  SceneTrigger: {fileID: 0}
   m_BrokenVersion: {fileID: 4843795417719525664, guid: c5e469f1e7bb97f4b91dfa1a07793b1a,
     type: 3}
   m_ColliderTag: Destroyer
@@ -13033,6 +13228,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc3a8c5ad509204cb2ac78f2182017c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Arrow3: {fileID: 0}
+  Arrow1: {fileID: 0}
+  Medbag: {fileID: 0}
+  Character: {fileID: 0}
+  SceneTrigger: {fileID: 0}
   m_BrokenVersion: {fileID: 4843795417719525664, guid: c5e469f1e7bb97f4b91dfa1a07793b1a,
     type: 3}
   m_ColliderTag: Destroyer
@@ -13071,6 +13271,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59fe722e016ecae438f59fbf21af3ecf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Arrow2: {fileID: 0}
+  Arrow3: {fileID: 0}
   m_RequiredTag: Bait
   m_OnEnter:
     m_PersistentCalls:
@@ -13596,6 +13798,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecc3a8c5ad509204cb2ac78f2182017c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Arrow3: {fileID: 0}
+  Arrow1: {fileID: 0}
+  Medbag: {fileID: 0}
+  Character: {fileID: 0}
+  SceneTrigger: {fileID: 0}
   m_BrokenVersion: {fileID: 4843795417719525664, guid: c5e469f1e7bb97f4b91dfa1a07793b1a,
     type: 3}
   m_ColliderTag: Destroyer
@@ -16707,3 +16914,4 @@ SceneRoots:
   - {fileID: 1113246288}
   - {fileID: 1785671956}
   - {fileID: 1353837817}
+  - {fileID: 81972819}
