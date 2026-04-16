@@ -1939,6 +1939,57 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 424437159}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &431477517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 431477519}
+  - component: {fileID: 431477518}
+  m_Layer: 0
+  m_Name: gamelogicBoatS4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!320 &431477518
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431477517}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 7194f9d78ff592a48bd621af88681c6d, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 3609363987026776140, guid: 7194f9d78ff592a48bd621af88681c6d, type: 2}
+    value: {fileID: 2015716412}
+  m_ExposedReferences:
+    m_References: []
+--- !u!4 &431477519
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431477517}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 106.597534, y: -7.3437276, z: -320.23822}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &472118289
 GameObject:
   m_ObjectHideFlags: 0
@@ -5130,6 +5181,7 @@ GameObject:
   - component: {fileID: 828291749}
   - component: {fileID: 828291751}
   - component: {fileID: 828291752}
+  - component: {fileID: 828291753}
   m_Layer: 0
   m_Name: Hippo_grab
   m_TagString: Untagged
@@ -5399,8 +5451,9 @@ MonoBehaviour:
   Medbag: {fileID: 0}
   Character: {fileID: 0}
   SceneTrigger: {fileID: 0}
-  m_BrokenVersion: {fileID: 899819463}
-  m_ColliderTag: Destroyer
+  m_BrokenVersion: {fileID: 7192412367775412154, guid: ec92ce12efa07124ea4afc4aee804315,
+    type: 3}
+  m_ColliderTag: Medicine
   m_OnBreak:
     m_PersistentCalls:
       m_Calls: []
@@ -5426,6 +5479,39 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &828291753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 828291744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59fe722e016ecae438f59fbf21af3ecf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Arrow2: {fileID: 0}
+  Arrow3: {fileID: 0}
+  m_RequiredTag: 
+  m_OnEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 431477518}
+        m_TargetAssemblyTypeName: UnityEngine.Playables.PlayableDirector, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_OnExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -5664,12 +5750,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!1 &899819463 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4558496370154638693, guid: 093bb7e6da0ef574b8a55aebdd22c75d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1322997982}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &933148262
 GameObject:
   m_ObjectHideFlags: 0
@@ -9955,6 +10035,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4558496370154638693, guid: 093bb7e6da0ef574b8a55aebdd22c75d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10011,6 +10096,37 @@ Transform:
   - {fileID: 1818660195}
   - {fileID: 147859228}
   - {fileID: 1191096178}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1350626901
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1350626902}
+  m_Layer: 0
+  m_Name: GameObject-med
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1350626902
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350626901}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.07857426, y: -0.7027277, z: -0.07857426, w: 0.70272756}
+  m_LocalPosition: {x: 116.931206, y: 0.754, z: -319.503}
+  m_LocalScale: {x: 53.8, y: 53.8, z: 53.8}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1353837815
@@ -10219,7 +10335,7 @@ PrefabInstance:
     - target: {fileID: 1050421732251251261, guid: 1ebd01da60d353a4aaee7bb6275bb3bc,
         type: 3}
       propertyPath: m_TagString
-      value: Destroyer
+      value: Medicine
       objectReference: {fileID: 0}
     - target: {fileID: 7747038474177836745, guid: 1ebd01da60d353a4aaee7bb6275bb3bc,
         type: 3}
@@ -17599,3 +17715,5 @@ SceneRoots:
   - {fileID: 5755540257772817103}
   - {fileID: 5553601885982213368}
   - {fileID: 745724059}
+  - {fileID: 1350626902}
+  - {fileID: 431477519}
