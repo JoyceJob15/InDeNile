@@ -27,10 +27,26 @@ public class TriggerSceneLoader : MonoBehaviour
         };
     }
 
-    // Calls FadeManager.FadeToScene via reflection if the type exists at runtime.
-    // Falls back to immediate load when FadeManager is not available or invocation fails.
     private void TryInvokeFadeManager(string sceneName, float duration)
     {
+        // Try direct API first (compile-time)
+        try
+        {
+            var fmInstance = FadeManager.Instance;
+            if (fmInstance != null)
+            {
+                fmInstance.FadeToScene(sceneName, duration);
+                Debug.Log($"[TriggerSceneLoader] Called FadeManager.Instance.FadeToScene('{sceneName}', {duration})");
+                return;
+            }
+            Debug.LogWarning("[TriggerSceneLoader] FadeManager.Instance returned null.");
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogWarning($"[TriggerSceneLoader] Direct call to FadeManager failed: {ex.Message}");
+        }
+
+        // Reflection fallback with verbose logging
         var fadeType = FindTypeByName("FadeManager");
         if (fadeType != null)
         {
@@ -44,17 +60,28 @@ public class TriggerSceneLoader : MonoBehaviour
                     if (method != null)
                     {
                         method.Invoke(instance, new object[] { sceneName, duration });
+                        Debug.Log($"[TriggerSceneLoader] Invoked FadeManager.FadeToScene('{sceneName}', {duration}) via reflection.");
                         return;
                     }
+                    Debug.LogWarning("[TriggerSceneLoader] FadeManager.FadeToScene method not found via reflection.");
+                }
+                else
+                {
+                    Debug.LogWarning("[TriggerSceneLoader] FadeManager.Instance was null via reflection (no active FadeManager in scene).");
                 }
             }
-            catch (Exception ex)
+            catch (System.Exception ex)
             {
-                Debug.LogWarning($"FadeManager reflection failed, falling back to LoadScene: {ex.Message}");
+                Debug.LogWarning($"[TriggerSceneLoader] FadeManager reflection failed, falling back to LoadScene: {ex.Message}");
             }
+        }
+        else
+        {
+            Debug.LogWarning("[TriggerSceneLoader] FadeManager type not found in loaded assemblies.");
         }
 
         // fallback
+        Debug.Log($"[TriggerSceneLoader] Falling back to SceneManager.LoadScene('{sceneName}').");
         SceneManager.LoadScene(sceneName);
     }
 

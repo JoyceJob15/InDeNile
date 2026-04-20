@@ -10,6 +10,8 @@ namespace UnityEngine.XR.Content.Interaction
     {
         [SerializeField] private GameObject Arrow2;
         [SerializeField] private GameObject Arrow3;
+        [SerializeField] private GameObject Sickle;
+        
         [Serializable] public class TriggerEvent : UnityEvent<GameObject> { }
 
         [SerializeField]
@@ -45,7 +47,10 @@ namespace UnityEngine.XR.Content.Interaction
                 m_OnEnter?.Invoke(other.gameObject);
             if (Arrow2 != null)
                 Arrow2.SetActive(false);
+            if (Arrow3 != null)
+                Arrow3.SetActive(false);
             Arrow3.SetActive(true);
+            Sickle.SetActive(true);
         }
 
         void OnTriggerExit(Collider other)
