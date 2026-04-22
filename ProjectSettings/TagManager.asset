@@ -13,6 +13,7 @@ TagManager:
   - Projectile
   - Flame
   - Medicine
+  - DestroyerWheatTrim
   layers:
   - Default
   - TransparentFX
