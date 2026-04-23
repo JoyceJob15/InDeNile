@@ -120,7 +120,7 @@ public class Hippofeed : MonoBehaviour
                 {
                     rbStates.Add((rb, rb.isKinematic));
                     // make kinematic while enabling to prevent immediate impulses
-                    rb.isKinematic = true;
+                    rb.isKinematic = false;
                 }
                 foreach (var c in cols)
                     c.enabled = false;

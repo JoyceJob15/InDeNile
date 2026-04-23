@@ -70,7 +70,7 @@ namespace UnityEngine.XR.Content.Interaction
 
                     // rotate Character by 45 degrees around its local Y axis
                     if (Character != null)
-                        Character.transform.Rotate(0f, 65f, 0f, UnityEngine.Space.Self);
+                        Character.transform.Rotate(0f, 90f, 0f, UnityEngine.Space.Self);
                 }
 
                 Destroy(gameObject);
