@@ -22,6 +22,7 @@ public class StartLock : MonoBehaviour
    public void Update()
     {
         player.moveSpeed = 0;
+        
     }
     public void StartGame()
     {
