@@ -18,7 +18,16 @@ public class DialogueController5 : MonoBehaviour
     [SerializeField] private AudioClip[] DialogueAudio5;
     [SerializeField] private bool waitForAudioToFinish = false;
 
+    [Header("Interaction control")]
+    [Tooltip("Indices (zero-based) where the coroutine will pause after showing that line and wait until NotifyInteraction(index) is called.")]
+    [SerializeField] private int[] waitAfterLineIndices = new int[0];
+
     private bool isProcessing = false;
+
+    // Tracks which wait indices have been signalled
+    private HashSet<int> signaledIndices = new HashSet<int>();
+    // For quick membership test of configured wait indices
+    private HashSet<int> waitIndicesSet = new HashSet<int>();
 
     void Start()
     {
@@ -43,6 +52,44 @@ public class DialogueController5 : MonoBehaviour
             DialogueLines5[3] = "I am glad we were able to reunite the little guy with his family.";
             DialogueLines5[4] = "Thank you for accompanying me on this journey!";
         }
+
+        // populate wait indices set (clamp to valid range)
+        waitIndicesSet.Clear();
+        if (waitAfterLineIndices != null)
+        {
+            foreach (var idx in waitAfterLineIndices)
+            {
+                if (idx >= 0 && idx < (DialogueLines5?.Length ?? 0))
+                    waitIndicesSet.Add(idx);
+            }
+        }
+    }
+
+    // Call this from external code (e.g. Hippofeed or HippoSwap) to resume dialogue when the interaction happened.
+    // If index == -1 (default), NotifyInteraction will mark the lowest configured wait index that hasn't yet been signalled.
+    public void NotifyInteraction(int index = -1)
+    {
+        if (waitIndicesSet.Count == 0) return;
+
+        if (index >= 0)
+        {
+            if (waitIndicesSet.Contains(index))
+                signaledIndices.Add(index);
+        }
+        else
+        {
+            // find the smallest un-signalled wait index and mark it signalled
+            int? next = null;
+            foreach (var idx in waitIndicesSet)
+            {
+                if (!signaledIndices.Contains(idx))
+                {
+                    if (!next.HasValue || idx < next.Value) next = idx;
+                }
+            }
+            if (next.HasValue)
+                signaledIndices.Add(next.Value);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -53,6 +100,7 @@ public class DialogueController5 : MonoBehaviour
             if (gameObject == DialogueTrigger5 || DialogueTrigger5 == null)
             {
                 isProcessing = true;
+                signaledIndices.Clear(); // reset signals each time we start
                 if (DialogueContainer5 != null) DialogueContainer5.SetActive(true);
                 StartCoroutine(ProcessDialogueOverTime5());
             }
@@ -76,6 +124,30 @@ public class DialogueController5 : MonoBehaviour
             if (DialogueAudioSource != null && clipToPlay != null)
             {
                 DialogueAudioSource.PlayOneShot(clipToPlay);
+            }
+
+            // If this index requires an external interaction, wait until it's signalled.
+            if (waitIndicesSet.Contains(i) && !signaledIndices.Contains(i))
+            {
+                // Optionally, if waitForAudioToFinish is set, ensure audio plays fully before waiting for interaction
+                if (waitForAudioToFinish && clipToPlay != null)
+                {
+                    float elapsedAudio = 0f;
+                    while (elapsedAudio < clipToPlay.length)
+                    {
+                        elapsedAudio += useUnscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
+                        yield return null;
+                    }
+                }
+
+                // wait until external signal marks this index as signalled
+                while (!signaledIndices.Contains(i))
+                {
+                    yield return null;
+                }
+
+                // once interaction occurred, continue immediately to next line
+                continue;
             }
 
             float elapsed = 0f;

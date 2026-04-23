@@ -49,6 +49,10 @@ public class Hippofeed : MonoBehaviour
     [Tooltip("Delay in fixed updates before re-enabling colliders on the newly enabled object (1 is usually enough).")]
     public int fixedUpdateDelayBeforeReenable = 1;
 
+    [Header("Dialogue (optional)")]
+    [Tooltip("Assign the DialogueController5 instance to notify when the medicine is used. This example signals index 0.")]
+    public DialogueController5 dialogueController;
+
     bool hasActivated = false;
 
     void Reset()
@@ -61,7 +65,8 @@ public class Hippofeed : MonoBehaviour
     {
         if (hippoToDisable == null)
             hippoToDisable = gameObject;
-        arrow2.SetActive(false);
+        if (arrow2 != null)
+            arrow2.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)
@@ -118,17 +123,34 @@ public class Hippofeed : MonoBehaviour
                     c.enabled = false;
 
                 objectToEnable.SetActive(true);
+
+                // Immediately assert colliders enabled (defensive)
+                ForceEnableColliders(cols);
+
+                // Start the normal re-enable + defensive follow-up
                 StartCoroutine(ReenableObjectCollidersAfterPhysics(objectToEnable, cols, rbStates, fixedUpdateDelayBeforeReenable));
             }
             else
             {
                 objectToEnable.SetActive(true);
+
+                // Defensive: some other component on the prefab might disable colliders during Start/Awake.
+                // Ensure colliders are enabled immediately and for several frames after activation.
+                var cols = objectToEnable.GetComponentsInChildren<Collider>(includeInactive: true);
+                ForceEnableColliders(cols);
+                StartCoroutine(EnsureCollidersEnabledLater(cols, fixedUpdateDelayBeforeReenable));
             }
         }
 
         // Disable the hippo
         if (hippoToDisable != null && hippoToDisable.activeSelf)
             hippoToDisable.SetActive(false);
+
+        // Notify dialogue controller (if assigned) that the medicine was used (signal index 0)
+        if (dialogueController != null)
+        {
+            dialogueController.NotifyInteraction(0);
+        }
 
         hasActivated = true;
     }
@@ -194,6 +216,47 @@ public class Hippofeed : MonoBehaviour
         {
             if (tup.rb != null)
                 tup.rb.isKinematic = tup.wasKinematic;
+        }
+
+        // Defensive re-check: some other component's Start/Awake may run after this and toggle colliders again.
+        // Ensure colliders stay enabled by re-asserting them a couple frames later (and repeatedly).
+        StartCoroutine(EnsureCollidersEnabledLater(colliders, 0));
+    }
+
+    // Wait a short while (some FixedUpdate cycles + frames) then re-enable colliders repeatedly to be defensive
+    IEnumerator EnsureCollidersEnabledLater(Collider[] colliders, int fixedDelay)
+    {
+        // Wait fixed updates first (if requested)
+        for (int i = 0; i < Mathf.Max(0, fixedDelay); ++i)
+            yield return new WaitForFixedUpdate();
+
+        // Repeat enabling across a few frames to beat other scripts that may toggle colliders in Start/OnEnable
+        const int repeatFrames = 6;
+        for (int f = 0; f < repeatFrames; ++f)
+        {
+            // Wait a frame so other scripts can run
+            yield return null;
+
+            foreach (var c in colliders)
+            {
+                if (c == null) continue;
+                c.enabled = true;
+            }
+        }
+    }
+
+    // Immediately force-enable colliders (use right after SetActive)
+    void ForceEnableColliders(Collider[] colliders)
+    {
+        if (colliders == null) return;
+        foreach (var c in colliders)
+        {
+            if (c == null) continue;
+            try
+            {
+                c.enabled = true;
+            }
+            catch { /* defensive: ignore any unexpected errors */ }
         }
     }
 }
