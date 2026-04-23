@@ -2,15 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TriggerAnimation : MonoBehaviour
+using UnityEngine;
+
+using UnityEngine;
+
+public class WaterTrigger : MonoBehaviour
 {
-    public Animator targetAnimator;
+    public GameObject hippo2;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Hippo"))
         {
-            targetAnimator.SetTrigger("Open");
+            other.gameObject.SetActive(false);
+            hippo2.SetActive(true);
         }
     }
 }

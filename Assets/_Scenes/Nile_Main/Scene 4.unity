@@ -720,6 +720,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8771091787928289351, guid: fcaff1fe4ad6158488df7f24def0b1ff,
         type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8771091787928289351, guid: fcaff1fe4ad6158488df7f24def0b1ff,
+        type: 3}
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
@@ -6886,59 +6891,6 @@ Transform:
   - {fileID: 594276680}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1100839415
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1100839416}
-  - component: {fileID: 1100839417}
-  m_Layer: 0
-  m_Name: TriggerZone
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1100839416
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1100839415}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.0000000037252899, y: -0.076522164, z: -0, w: 0.9970679}
-  m_LocalPosition: {x: 97.63, y: -1.1060002, z: -373.79}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -8.777, z: 0}
---- !u!65 &1100839417
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1100839415}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.4988785, y: 1, z: 4.578003}
-  m_Center: {x: -0.74943924, y: 0, z: -0.4567871}
 --- !u!1001 &1113246288
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12357,7 +12309,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
@@ -15311,7 +15263,7 @@ GameObject:
   - component: {fileID: 2055211726}
   - component: {fileID: 2055211725}
   m_Layer: 0
-  m_Name: hippowater
+  m_Name: WaterTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18862,6 +18814,7 @@ SceneRoots:
   - {fileID: 1785671956}
   - {fileID: 1353837817}
   - {fileID: 81972819}
+  - {fileID: 128128569}
   - {fileID: 2055211726}
   - {fileID: 1350626902}
   - {fileID: 431477519}
@@ -18869,5 +18822,3 @@ SceneRoots:
   - {fileID: 1867539166}
   - {fileID: 1186511849}
   - {fileID: 947515758}
-  - {fileID: 1100839416}
-  - {fileID: 128128569}
