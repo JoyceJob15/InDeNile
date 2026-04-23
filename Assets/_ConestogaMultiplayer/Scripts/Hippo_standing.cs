@@ -4,18 +4,24 @@ using UnityEngine;
 
 using UnityEngine;
 
-using UnityEngine;
-
-public class WaterTrigger : MonoBehaviour
+public class HippoSwap : MonoBehaviour
 {
-    public GameObject hippo2;
+    // Drag the 'hippo2' Prefab into this slot in the Inspector
+    [SerializeField] private GameObject hippo2Prefab;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Hippo"))
+        // Check if the object we collided with has the specific water tag
+        if (other.CompareTag("waterhippo"))
         {
-            other.gameObject.SetActive(false);
-            hippo2.SetActive(true);
+            // 1. Spawn hippo2 at the current hippo's location
+            GameObject newHippo = Instantiate(hippo2Prefab, transform.position, transform.rotation);
+
+            // 2. Ensure hippo2 is named correctly in the hierarchy (optional)
+            newHippo.name = "hippo2";
+
+            // 3. Remove the original hippo
+            Destroy(gameObject);
         }
     }
 }
