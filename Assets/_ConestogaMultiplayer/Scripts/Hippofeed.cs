@@ -19,6 +19,13 @@ public class Hippofeed : MonoBehaviour
     [Tooltip("The hippo GameObject to disable. If null, disables the GameObject this component is attached to.")]
     public GameObject hippoToDisable;
 
+    [Header("Arrows")]
+    [Tooltip("Arrow that is currently shown and should be disabled when medicine is used.")]
+    public GameObject arrow1;
+
+    [Tooltip("Arrow to enable when medicine is used.")]
+    public GameObject arrow2;
+
     [Header("Options")]
     [Tooltip("Disable the medicine bag after feeding.")]
     public bool disableMedicineOnUse = true;
@@ -54,6 +61,7 @@ public class Hippofeed : MonoBehaviour
     {
         if (hippoToDisable == null)
             hippoToDisable = gameObject;
+        arrow2.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)
@@ -80,6 +88,16 @@ public class Hippofeed : MonoBehaviour
         // As early as possible: disable medicine colliders and make it kinematic / move away
         if (disableMedicineOnUse && hitter != null)
             SafelyDisableMedicineImmediate(hitter);
+
+        // Toggle arrows: disable arrow1 and enable arrow2 when medicine disappears
+        if (disableMedicineOnUse)
+        {
+            if (arrow1 != null && arrow1.activeSelf)
+                arrow1.SetActive(false);
+
+            if (arrow2 != null && !arrow2.activeSelf)
+                arrow2.SetActive(true);
+        }
 
         // Activate desired object (protect its colliders to avoid immediate physics pushes)
         if (objectToEnable != null && !objectToEnable.activeSelf)
