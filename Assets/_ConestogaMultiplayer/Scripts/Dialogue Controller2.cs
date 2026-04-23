@@ -12,7 +12,7 @@ public class DialogueController2 : MonoBehaviour
     // [SerializeField] private string[] DialogueLines1; // commented out
     [SerializeField] private string[] DialogueLines2;
     // [SerializeField] private string[] DialogueLines3; // commented out
-
+    [SerializeField] private TMPro.TMP_Text Task;
     // [SerializeField] private GameObject DialogueTrigger1; // commented out
     [SerializeField] private GameObject DialogueTrigger2;
     // [SerializeField] private GameObject DialogueTrigger3; // commented out
@@ -119,6 +119,7 @@ public class DialogueController2 : MonoBehaviour
         if (DialogueTrigger2 != null) DialogueTrigger2.SetActive(false);
         if (DialogueContainer2 != null) DialogueContainer2.SetActive(false);
         isProcessing = false;
+        Task.text = "Hit the crocodiles";
     }
 
     // Controller 1 & 3 logic/commented intentionally:

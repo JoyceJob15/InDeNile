@@ -13,7 +13,7 @@ public class DialogueController : MonoBehaviour
     [SerializeField] private string[] DialogueLines1;
     // [SerializeField] private string[] DialogueLines2; // commented out
     // [SerializeField] private string[] DialogueLines3; // commented out
-
+    [SerializeField] private TMPro.TMP_Text Task;
     [SerializeField] private GameObject DialogueTrigger1;
     // [SerializeField] private GameObject DialogueTrigger2; // commented out
     // [SerializeField] private GameObject DialogueTrigger3; // commented out
@@ -133,6 +133,7 @@ public class DialogueController : MonoBehaviour
         if (DialogueContainer1 != null) DialogueContainer1.SetActive(false);
         if (Arrow != null) Arrow.SetActive(false); // keep existing behavior
         if (Arrow2 != null) Arrow2.SetActive(true); // enable Arrow2 when dialogue ends
+        Task.text = "Enter the boat";
         isProcessing = false;
 
         // NEW: enable a GameObject named "SceneTrigger1" when all dialogues are finished

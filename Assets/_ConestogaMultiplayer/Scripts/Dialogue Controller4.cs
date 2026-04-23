@@ -9,6 +9,7 @@ public class DialogueController4 : MonoBehaviour
     // Variables (controller 4)
     [SerializeField] private string[] DialogueLines4;
     [SerializeField] private GameObject DialogueTrigger4;
+    [SerializeField] private TMPro.TMP_Text Task;
     [SerializeField] private TMP_Text Dialogue4;
     [SerializeField] private GameObject DialogueContainer4;
     [SerializeField] private GameObject Arrow;
@@ -105,5 +106,6 @@ public class DialogueController4 : MonoBehaviour
         if (Arrow != null) Arrow.SetActive(false); // keep existing behavior
         if (Arrow2 != null) Arrow2.SetActive(true); // enable Arrow2 when dialogue ends
         isProcessing = false;
+        Task.text = "Feed the cows";
     }
 }

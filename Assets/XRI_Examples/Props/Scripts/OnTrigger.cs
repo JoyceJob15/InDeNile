@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using UnityEngine.Events;
 
 namespace UnityEngine.XR.Content.Interaction
@@ -11,7 +12,8 @@ namespace UnityEngine.XR.Content.Interaction
         [SerializeField] private GameObject Arrow2;
         [SerializeField] private GameObject Arrow3;
         [SerializeField] private GameObject Sickle;
-        
+        [SerializeField] private TMPro.TMP_Text Task;
+
         [Serializable] public class TriggerEvent : UnityEvent<GameObject> { }
 
         [SerializeField]
@@ -51,6 +53,7 @@ namespace UnityEngine.XR.Content.Interaction
                 Arrow3.SetActive(false);
             Arrow3.SetActive(true);
             Sickle.SetActive(true);
+            Task.text = "Harvest the crops";
         }
 
         void OnTriggerExit(Collider other)

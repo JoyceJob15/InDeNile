@@ -8,6 +8,7 @@ public class DialogueController3 : MonoBehaviour
 {
     [SerializeField] private string[] DialogueLines3;
     [SerializeField] private GameObject DialogueTrigger3;
+    [SerializeField] private TMPro.TMP_Text Task;
     [SerializeField] private TMP_Text Dialogue3;
     [SerializeField] private GameObject DialogueContainer3;
     [SerializeField] private float delayBetweenItems = 2f;
@@ -102,5 +103,6 @@ public class DialogueController3 : MonoBehaviour
         if (DialogueTrigger3 != null) DialogueTrigger3.SetActive(false);
         if (DialogueContainer3 != null) DialogueContainer3.SetActive(false);
         isProcessing = false;
+        Task.text = "Enter the village";
     }
 }

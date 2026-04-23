@@ -11,6 +11,15 @@ public class Hippo_standing : MonoBehaviour
     [Tooltip("Assign the DialogueController5 instance to resume dialogue after the waterhippo interaction. This example signals index 2.")]
     [SerializeField] private DialogueController5 dialogueController;
 
+    [Header("Enable after delay")]
+    [Tooltip("The GameObject to enable after the hippo2 is created and the delay elapses.")]
+    [SerializeField] private GameObject objectToEnableAfterDelay;
+    [Tooltip("Seconds to wait after spawning hippo2 before enabling the object.")]
+    [SerializeField] private float enableDelaySeconds = 20f;
+
+    // ensure the timer only starts once
+    private bool enableTimerStarted = false;
+
     private void Awake()
     {
         // If not assigned in the Inspector, try to find one in the scene
@@ -33,8 +42,30 @@ public class Hippo_standing : MonoBehaviour
             if (dialogueController != null)
                 dialogueController.NotifyInteraction(2);
 
+            // Start the enable-after-delay timer (only once)
+            if (objectToEnableAfterDelay != null && !enableTimerStarted)
+            {
+                enableTimerStarted = true;
+                StartCoroutine(EnableAfterDelay(objectToEnableAfterDelay, enableDelaySeconds));
+            }
+
             // 3. Remove the original hippo
             Destroy(gameObject);
         }
+    }
+
+    private IEnumerator EnableAfterDelay(GameObject target, float delay)
+    {
+        if (target == null) yield break;
+
+        float elapsed = 0f;
+        while (elapsed < delay)
+        {
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        // Enable the target when the timer completes
+        target.SetActive(true);
     }
 }

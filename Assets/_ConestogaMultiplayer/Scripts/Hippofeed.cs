@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
@@ -8,6 +9,7 @@ public class Hippofeed : MonoBehaviour
     [Header("Detection")]
     [Tooltip("If set, only this exact GameObject will trigger the feed. If null, tag matching is used.")]
     public GameObject medicineObject;
+    [SerializeField] private TMPro.TMP_Text Task;
 
     [Tooltip("If medicineObject is null, this tag will be used to identify the medicine bag.")]
     public string medicineTag = "MedicineBag";
@@ -102,6 +104,7 @@ public class Hippofeed : MonoBehaviour
 
             if (arrow2 != null && !arrow2.activeSelf)
                 arrow2.SetActive(true);
+            Task.text = "Release the hippo into the water";
         }
 
         // Activate desired object (protect its colliders to avoid immediate physics pushes)
