@@ -8,32 +8,58 @@ public class StartLock : MonoBehaviour
 {
     public GameObject Task;
     public GameObject TaskHeader;
-    DynamicMoveProvider player;
+    [SerializeField] private DynamicMoveProvider player;
     public GameObject Canvas;
+    public GameObject uibuttons;
+    public GameObject playerobject;
+    public GameObject StartMenu;
     // Start is called before the first frame update
     void Start()
     {
-        
-        Task.SetActive(false);
-        TaskHeader.SetActive(false);
+        if (Task != null) Task.SetActive(false);
+        if (TaskHeader != null) TaskHeader.SetActive(false);
+
+        // Try to resolve the player MoveProvider if it wasn't assigned in the Inspector
+        if (player == null)
+        {
+            if (playerobject != null)
+                player = playerobject.GetComponent<DynamicMoveProvider>() ?? playerobject.GetComponentInChildren<DynamicMoveProvider>();
+
+            if (player == null)
+                player = FindObjectOfType<DynamicMoveProvider>();
+        }
+
+        if (player != null)
+            player.moveSpeed = 0;
+        else
+            Debug.LogWarning("StartLock: DynamicMoveProvider 'player' is null. Movement calls will be skipped.", this);
+
+        if (playerobject != null)
+            playerobject.SetActive(false);
     }
 
-   
-   public void Update()
+    void Update()
     {
-        player.moveSpeed = 0;
-        
+       
     }
+
     public void StartGame()
     {
-          player.moveSpeed = 1.5f;
-            Task.SetActive(true);
-            TaskHeader.SetActive(true);
-        Canvas.SetActive(false);
+        if (playerobject != null)
+            playerobject.SetActive(true);
+
+        
+            player.moveSpeed = 1.5f;
+        StartMenu.SetActive(false);
+
+
+        if (Task != null) Task.SetActive(true);
+        if (TaskHeader != null) TaskHeader.SetActive(true);
+        if (uibuttons != null) uibuttons.SetActive(false);
 
     }
-    public void Quit
-        ()
+
+    public void Quit()
     {
         Application.Quit();
     }

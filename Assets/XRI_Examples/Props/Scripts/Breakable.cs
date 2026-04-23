@@ -66,7 +66,7 @@ namespace UnityEngine.XR.Content.Interaction
                     if (Arrow1 != null) Arrow1.SetActive(true);
                     if (Medbag != null) Medbag.SetActive(true);
                     if (SceneTrigger != null) SceneTrigger.SetActive(true);
-                    Task.text = "Return to the farmer";
+                    Task.text = "Collect Medicine from the Farmer";
 
                     // rotate Character by 45 degrees around its local Y axis
                     if (Character != null)
