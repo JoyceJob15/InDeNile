@@ -1163,6 +1163,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 8f5f20794b210cb469141c3b2b42f53a, type: 2}
+    - target: {fileID: 3395399214297735980, guid: f96c42d21906cc847b7bb2dcff8b7283,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6319604476973442164, guid: f96c42d21906cc847b7bb2dcff8b7283,
         type: 3}
       propertyPath: m_Name
@@ -3736,6 +3741,8 @@ MonoBehaviour:
   medicineTag: MedicineBag
   objectToEnable: {fileID: 340099344}
   hippoToDisable: {fileID: 626263727}
+  arrow1: {fileID: 2136465575}
+  arrow2: {fileID: 1953317520}
   disableMedicineOnUse: 1
   useTrigger: 1
   protectRadius: 1
@@ -14575,6 +14582,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1909617693}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1953317520 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6319604476973442164, guid: f96c42d21906cc847b7bb2dcff8b7283,
+    type: 3}
+  m_PrefabInstance: {fileID: 233556480}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1968060901
 GameObject:
   m_ObjectHideFlags: 0
@@ -16280,6 +16293,12 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8827667521994584303, guid: 57196516f6d4fa7499d79ba3a026cd31, type: 3}
+--- !u!1 &2136465575 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6319604476973442164, guid: f96c42d21906cc847b7bb2dcff8b7283,
+    type: 3}
+  m_PrefabInstance: {fileID: 2014925574}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2144005806
 PrefabInstance:
   m_ObjectHideFlags: 0
