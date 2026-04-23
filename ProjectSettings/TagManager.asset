@@ -16,6 +16,7 @@ TagManager:
   - DestroyerWheatTrim
   - Hippo
   - waterhippo
+  - MedicineBag
   layers:
   - Default
   - TransparentFX
