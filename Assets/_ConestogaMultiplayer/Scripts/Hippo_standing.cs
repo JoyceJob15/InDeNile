@@ -15,7 +15,7 @@ public class Hippo_standing : MonoBehaviour
     [Tooltip("The GameObject to enable after the hippo2 is created and the delay elapses.")]
     [SerializeField] private GameObject objectToEnableAfterDelay;
     [Tooltip("Seconds to wait after spawning hippo2 before enabling the object.")]
-    [SerializeField] private float enableDelaySeconds = 20f;
+    [SerializeField] private float enableDelaySeconds = 5f;
 
     // ensure the timer only starts once
     private bool enableTimerStarted = false;
@@ -46,16 +46,59 @@ public class Hippo_standing : MonoBehaviour
             if (objectToEnableAfterDelay != null && !enableTimerStarted)
             {
                 enableTimerStarted = true;
-                StartCoroutine(EnableAfterDelay(objectToEnableAfterDelay, enableDelaySeconds));
+                RunDelayedEnable(objectToEnableAfterDelay, enableDelaySeconds);
             }
 
-            // 3. Remove the original hippo
+            // 3. Deactivate the original hippo instead of destroying it
+            gameObject.SetActive(false);
+        }
+    }
+
+    // Runs the enable-after-delay on a short-lived active GameObject so the coroutine keeps running even if this GameObject is deactivated.
+    private void RunDelayedEnable(GameObject target, float delay)
+    {
+        var runnerGO = new GameObject("Hippo_standing_DelayedRunner");
+        var runner = runnerGO.AddComponent<DelayedRunner>();
+        runner.Initialize(target, delay);
+    }
+
+    private class DelayedRunner : MonoBehaviour
+    {
+        private GameObject target;
+        private float delay;
+
+        public void Initialize(GameObject target, float delay)
+        {
+            this.target = target;
+            this.delay = delay;
+            StartCoroutine(Run());
+        }
+
+        private IEnumerator Run()
+        {
+            if (target == null)
+            {
+                Destroy(gameObject);
+                yield break;
+            }
+
+            float elapsed = 0f;
+            while (elapsed < delay)
+            {
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+
+            if (target != null)
+                target.SetActive(true);
+
             Destroy(gameObject);
         }
     }
 
     private IEnumerator EnableAfterDelay(GameObject target, float delay)
     {
+        // This method is kept for compatibility but is not used when the hippo is deactivated.
         if (target == null) yield break;
 
         float elapsed = 0f;

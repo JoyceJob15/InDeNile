@@ -23,6 +23,7 @@ public class TriggerSceneLoader : MonoBehaviour
             "Scene 1" => "Scene 2",
             "Scene 2" => "Scene 3",
             "Scene 3" => "Scene 4",
+            "Scene 4" => "Scene 1",
             _ => null
         };
     }
