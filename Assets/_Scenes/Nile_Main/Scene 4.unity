@@ -10988,6 +10988,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1511119372}
+    - targetCorrespondingSourceObject: {fileID: 4558496370154638693, guid: 093bb7e6da0ef574b8a55aebdd22c75d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1511119373}
   m_SourcePrefab: {fileID: 100100000, guid: 093bb7e6da0ef574b8a55aebdd22c75d, type: 3}
 --- !u!1 &1345921147
 GameObject:
@@ -12352,6 +12356,19 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!114 &1511119373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340099344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 990ae4e54b0b6654dbcaae6a984107c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hippo2Prefab: {fileID: 0}
 --- !u!1001 &1518948555
 PrefabInstance:
   m_ObjectHideFlags: 0

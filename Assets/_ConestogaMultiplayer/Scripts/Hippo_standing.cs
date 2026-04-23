@@ -7,7 +7,7 @@ using UnityEngine;
 public class HippoSwap : MonoBehaviour
 {
     // Drag the 'hippo2' Prefab into this slot in the Inspector
-    [SerializeField] private GameObject hippo2Prefab;
+    [SerializeField] private GameObject hippo2;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,7 +15,7 @@ public class HippoSwap : MonoBehaviour
         if (other.CompareTag("waterhippo"))
         {
             // 1. Spawn hippo2 at the current hippo's location
-            GameObject newHippo = Instantiate(hippo2Prefab, transform.position, transform.rotation);
+            GameObject newHippo = Instantiate(hippo2, transform.position, transform.rotation);
 
             // 2. Ensure hippo2 is named correctly in the hierarchy (optional)
             newHippo.name = "hippo2";
