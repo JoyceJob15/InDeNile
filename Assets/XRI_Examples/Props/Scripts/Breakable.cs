@@ -18,6 +18,9 @@ namespace UnityEngine.XR.Content.Interaction
         [SerializeField] private GameObject Character;
         [SerializeField] private GameObject SceneTrigger;
         [SerializeField] private TMPro.TMP_Text Task;
+        [SerializeField] private GameObject Dialogue6;
+        public AudioSource audioSource;
+        public AudioClip soundEffect;
         [Serializable] public class BreakEvent : UnityEvent<GameObject, GameObject> { }
 
         [SerializeField]
@@ -40,7 +43,14 @@ namespace UnityEngine.XR.Content.Interaction
         /// The first parameter is the colliding object, the second parameter is the 'broken' version.
         /// </summary>
         public BreakEvent onBreak => m_OnBreak;
+        private void Start()
+        {
+            if (audioSource != null && soundEffect != null)
+            {
+                audioSource.clip = soundEffect;
 
+            }
+        }
         void OnCollisionEnter(Collision collision)
         {
             if (m_Destroyed)
@@ -67,6 +77,8 @@ namespace UnityEngine.XR.Content.Interaction
                     if (Medbag != null) Medbag.SetActive(true);
                     if (SceneTrigger != null) SceneTrigger.SetActive(true);
                     Task.text = "Collect Medicine from the Farmer";
+                    audioSource.Play();
+                    Dialogue6.SetActive(true);
 
                     // rotate Character by 45 degrees around its local Y axis
                     if (Character != null)

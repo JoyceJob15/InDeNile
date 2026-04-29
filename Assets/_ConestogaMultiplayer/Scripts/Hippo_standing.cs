@@ -10,7 +10,9 @@ public class Hippo_standing : MonoBehaviour
     [Header("Optional: notify dialogue when swap happens")]
     [Tooltip("Assign the DialogueController5 instance to resume dialogue after the waterhippo interaction. This example signals index 2.")]
     [SerializeField] private DialogueController5 dialogueController;
-
+    [SerializeField] private GameObject Finaltask;
+    [SerializeField] private GameObject FinaltaskHeader;
+    [SerializeField] private GameObject Arrow;
     [Header("Enable after delay")]
     [Tooltip("The GameObject to enable after the hippo2 is created and the delay elapses.")]
     [SerializeField] private GameObject objectToEnableAfterDelay;
@@ -37,6 +39,10 @@ public class Hippo_standing : MonoBehaviour
 
             // 2. Ensure hippo2 is named correctly in the hierarchy (optional)
             newHippo.name = "hippo2";
+            Finaltask.SetActive(false);
+            FinaltaskHeader.SetActive(false);
+            Arrow.SetActive(false);
+
 
             // Notify the dialogue controller that the waterhippo interaction happened (signal index 2)
             if (dialogueController != null)

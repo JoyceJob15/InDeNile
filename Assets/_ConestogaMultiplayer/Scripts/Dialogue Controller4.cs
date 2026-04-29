@@ -16,6 +16,7 @@ public class DialogueController4 : MonoBehaviour
     [SerializeField] private GameObject Arrow2;
     [SerializeField] private float delayBetweenItems = 2f;
     [SerializeField] private bool useUnscaledTime = false; // false => Time.deltaTime, true => Time.unscaledDeltaTime
+    
 
     [Header("Audio (optional)")]
     [SerializeField] private AudioSource DialogueAudioSource;
